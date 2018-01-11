@@ -14,6 +14,8 @@ Swarm service不同于独立的container的一个好处是可以修改service的
 
 In the same way that you can use Docker Compose to define and run containers, you can define and run swarm service stacks.
 
+就像使用Docker Compose一样，我们可以使用Swarm service stacks来定义和运行container。
+
 Keep reading for details about concepts relating to Docker swarm services, including nodes, services, tasks, and load balancing.
 
 Nodes
