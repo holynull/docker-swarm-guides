@@ -16,8 +16,9 @@ Swarm service不同于独立的container的一个好处是可以修改service的
 
 下面我们将继续介绍关于Docker swarm services的相关概念，包括：nodes、services、tasks和load balancing。
 
-Nodes
-A node is an instance of the Docker engine participating in the swarm. You can also think of this as a Docker node. You can run one or more nodes on a single physical computer or cloud server, but production swarm deployments typically include Docker nodes distributed across multiple physical and cloud machines.
+## Nodes
+
+Node是组成swarm的Docker engine的一个实例。你也可以这样理解，我们可以运行多个node在单独的一个物理计算机服务器上或者云服务器上，但是生产环境通常会要求我们将Docker node分散部署在多个物理主机或者云服务器上。
 
 To deploy your application to a swarm, you submit a service definition to a manager node. The manager node dispatches units of work called tasks to worker nodes.
 
