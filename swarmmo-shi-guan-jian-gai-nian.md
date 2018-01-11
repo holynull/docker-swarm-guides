@@ -12,11 +12,9 @@ Swarm service不同于独立的container的一个好处是可以修改service的
 
 当Docker以swarm模式运行时，也可以在Docker下运行独立的container。独立的contianer和swarm service一个主要的不同点是，只有swarm的manager才能管理swarm，而独立的container可以在任何一个daemon上启动。Docker daemon可以以manager身份、worker身份，或者同时以两种身份加入到swarm中。
 
-In the same way that you can use Docker Compose to define and run containers, you can define and run swarm service stacks.
-
 就像使用Docker Compose一样，我们可以使用Swarm service stacks来定义和运行container。
 
-Keep reading for details about concepts relating to Docker swarm services, including nodes, services, tasks, and load balancing.
+下面我们将继续介绍关于Docker swarm services的相关概念，包括：nodes、services、tasks和load balancing。
 
 Nodes
 A node is an instance of the Docker engine participating in the swarm. You can also think of this as a Docker node. You can run one or more nodes on a single physical computer or cloud server, but production swarm deployments typically include Docker nodes distributed across multiple physical and cloud machines.
