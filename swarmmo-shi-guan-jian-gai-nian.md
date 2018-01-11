@@ -22,7 +22,11 @@ Node是组成swarm的Docker engine的一个实例。你也可以这样理解，�
 
 To deploy your application to a swarm, you submit a service definition to a manager node. The manager node dispatches units of work called tasks to worker nodes.
 
+部署应用到swarm时，首先需要向manager提交要发布的service的定义（配置）。manager节点会对worker节点派发task。
+
 Manager nodes also perform the orchestration and cluster management functions required to maintain the desired state of the swarm. Manager nodes elect a single leader to conduct orchestration tasks.
+
+manager节点同时具有执行业务流程的功能，以及为了维持swarm状态而必须的集群管理功能。所有的manager节点会推选一个节点作为leader来实施业务流程任务。
 
 Worker nodes receive and execute tasks dispatched from manager nodes. By default manager nodes also run services as worker nodes, but you can configure them to run manager tasks exclusively and be manager-only nodes. An agent runs on each worker node and reports on the tasks assigned to it. The worker node notifies the manager node of the current state of its assigned tasks so that the manager can maintain the desired state of each worker.
 
