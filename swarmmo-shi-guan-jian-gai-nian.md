@@ -30,6 +30,8 @@ manager节点同时具有执行业务流程的功能，以及为了维持swarm�
 
 Worker nodes receive and execute tasks dispatched from manager nodes. By default manager nodes also run services as worker nodes, but you can configure them to run manager tasks exclusively and be manager-only nodes. An agent runs on each worker node and reports on the tasks assigned to it. The worker node notifies the manager node of the current state of its assigned tasks so that the manager can maintain the desired state of each worker.
 
+worker节点接收并执行manager节点分配的任务。manager节点默认是可以运行service的，除非我们设置manager节点仅作为manager角色执行管理任务。每个worker节点上会有一个agent，并且不断的汇报分配到这个节点上的task执行情况。woker节点向manager节点汇报分配给它的任务的当前状态，manager节点才能根据task的运行的情况来维持每一个workder上的状态。
+
 Services and tasks
 A service is the definition of the tasks to execute on the manager or worker nodes. It is the central structure of the swarm system and the primary root of user interaction with the swarm.
 
