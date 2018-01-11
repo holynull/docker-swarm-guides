@@ -39,7 +39,11 @@ Service是将要在manager或者worker节点上执行的task的定义。它在sw
 
 When you create a service, you specify which container image to use and which commands to execute inside running containers.
 
+当创建service时，你可以执行container使用哪个镜像，并设定将在container内执行哪些命令。
+
 In the replicated services model, the swarm manager distributes a specific number of replica tasks among the nodes based upon the scale you set in the desired state.
+
+在副本service模式中，
 
 For global services, the swarm runs one task for the service on every available node in the cluster.
 
