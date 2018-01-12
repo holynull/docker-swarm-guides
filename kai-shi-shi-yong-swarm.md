@@ -95,3 +95,11 @@ TCP port 2377 for cluster management communications
 TCP and UDP port 7946 for communication among nodes
 UDP port 4789 for overlay network traffic
 If you are planning on creating an overlay network with encryption (--opt encrypted), you will also need to ensure ip protocol 50 (ESP) traffic is allowed.
+
+宿主机需要开发如下端口，某些操作系统中这些端口是默认开放的：
+
+- TCP  2377 - 集群管理通信端口
+- TCP and UDP 7946 - 节点之间的通信端口
+- UDP 4789 - Overlay Network数据传输端口
+
+
