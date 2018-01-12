@@ -33,11 +33,11 @@
   To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
   ```
   
-  The --advertise-addr flag configures the manager node to publish its address as 192.168.99.100. The other nodes in the swarm must be able to access the manager at the IP address.
+  参数`--advertise-addr`将功能对外公布manager节点的IP地址为`192.168.99.100`。其他节点必须能够通过这个IP地址访问到该节点。
 
-  The output includes the commands to join new nodes to the swarm. Nodes will join as managers or workers depending on the value for the --token flag.
+  我们可以看见输出的结果包含了一条在Swarm中添加新节点的命令。节点将依赖参数`--token`，作为manager或者worker加入Swarm。
 
-  Run docker info to view the current state of the swarm:
+3. 运行`docker info`命令查看Swarm的当前状态。
   
   ```
   $ docker info
@@ -54,13 +54,16 @@
     Nodes: 1
     ...snip...
   ```
-  Run the docker node ls command to view information about nodes:
+  
+4. 运行`docker node ls`命令查看节点的信息。
 
-$ docker node ls
+  ```
+  $ docker node ls
 
-ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+  ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER   STATUS
 dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
+  ```
 
-The * next to the node ID indicates that you’re currently connected on this node.
+`*`表示当前链接的节点，即我们执行操作命令的节点。
 
-Docker Engine swarm mode automatically names the node for the machine host name. The tutorial covers other columns in later steps.
+Docker Engine在swarm模式下，使用宿主机的host name来命名节点。
