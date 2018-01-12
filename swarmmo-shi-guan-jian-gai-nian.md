@@ -60,9 +60,11 @@ manager使用入口负载均衡向swarm之外暴露service的端口。manager可
 
 External components, such as cloud load balancers, can access the service on the PublishedPort of any node in the cluster whether or not the node is currently running the task for the service. All nodes in the swarm route ingress connections to a running task instance.
 
-外部组件，例如cloud load balancers，可以通过service的PublishedPort访问到集群中的某一个节点，然而这个节点并不一定正在运行端口对应service的task。但是swarm中所有的节点都会将入口链接路由指向到对应的service上正在运行的task实例。
+外部组件，例如cloud load balancers，可以通过service的PublishedPort访问到集群中的某一个节点，然而这个节点并不一定正在运行端口对应service的task。但是，swarm中所有的节点都会将入口链接路由指向到对应的service上正在运行的task实例。
 
 Swarm mode has an internal DNS component that automatically assigns each service in the swarm a DNS entry. The swarm manager uses internal load balancing to distribute requests among services within the cluster based upon the DNS name of the service.
+
+Swarm拥有一个内部的DNS组件，这个组件会为每一个service分配一个DNS入口。manager使用内部负载均衡，基于service的DNS name，将请求分发到service集群。
 
 
 
