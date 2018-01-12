@@ -73,13 +73,19 @@ Currently, you cannot use Docker for Mac or Windows alone to test a multi-node s
 
 The IP address must be assigned to a network interface available to the host operating system. All nodes in the swarm must be able to access the manager at the IP address.
 
+宿主机必须被分配一个固定的IP地址。Swarm中的节点必须能够通过IP地址访问到Manager节点。
+
 Because other nodes contact the manager node on its IP address, you should use a fixed IP address.
+
+
 
 You can run ifconfig on Linux or macOS to see a list of the available network interfaces.
 
 If you are using Docker Machine, you can get the manager IP with either docker-machine ls or docker-machine ip <MACHINE-NAME> — for example, docker-machine ip manager1.
 
-The tutorial uses manager1 : 192.168.99.100.
+如果使用Docker Machine建立的宿主机，我们可以通过`docker-machine ls`或者`docker-machine -ip <MACHINE-NAME>`来获得IP地址。
+
+本教程中的manager1的IP地址是： 192.168.99.100.
 
 ### Open protocols and ports between the hosts
 
