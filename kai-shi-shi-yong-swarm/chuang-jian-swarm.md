@@ -18,12 +18,21 @@
   
   > **注意：**如果你使用Docker for Mac或者Docker for Windows实验单节点Swarm，那么命令后面就不要加任何参数。这种情况下不需要指定`--advertise-addr`。
 
-  In the tutorial, the following command creates a swarm on the manager1 machine:
   在本教程重，执行如下命令在manager1主机上创建一个swarm：
   
   ```
-  sssss
+  $ docker swarm init --advertise-addr 192.168.99.100
+Swarm initialized: current node (dxn1zf6l61qsb1josjja83ngz) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+    192.168.99.100:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
   ```
+  
 To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
  
   To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
