@@ -43,16 +43,24 @@ When you create a service, you specify which container image to use and which co
 
 In the replicated services model, the swarm manager distributes a specific number of replica tasks among the nodes based upon the scale you set in the desired state.
 
-在service的副本模式情况下，manager会将指定副本数量的任务分配到所有的node上执行，这个副本的数量就是service的container的数量（即，service的scale）。
+在service的副本模式情况下，manager会使swarm生成n个任务，并分配到所有的node上执行，n等于指定的副本数量。副本数量就是service的container的数量（即，service的scale）。
 
 For global services, the swarm runs one task for the service on every available node in the cluster.
 
+对于全局services，swarm会在集群的每一个node上执行一个任务。
+
 A task carries a Docker container and the commands to run inside the container. It is the atomic scheduling unit of swarm. Manager nodes assign tasks to worker nodes according to the number of replicas set in the service scale. Once a task is assigned to a node, it cannot move to another node. It can only run on the assigned node or fail.
 
-Load balancing
+每一个task包括一个运行的container，以及在container内部运行的命令。task是swarm调度的原子单元。manager将根据副本数生成的task分配到所有worker节点上。一定一个task被分配到一个node上，将不能在移动到其他节点上。所以，task状态的原子性在于task只能在一个node上运行或者失败。
+
+## Load balancing
 The swarm manager uses ingress load balancing to expose the services you want to make available externally to the swarm. The swarm manager can automatically assign the service a PublishedPort or you can configure a PublishedPort for the service. You can specify any unused port. If you do not specify a port, the swarm manager assigns the service a port in the 30000-32767 range.
 
+manager使用入口负载均衡向swarm之外暴露service的端口。manager可以自动为service分配PublishedPort，也可以通过设置指定PublishedPort。如果没有指定端口号，manager将从30000到32767之间选择一个端口号分配给service。
+
 External components, such as cloud load balancers, can access the service on the PublishedPort of any node in the cluster whether or not the node is currently running the task for the service. All nodes in the swarm route ingress connections to a running task instance.
+
+外部组件，例如cloud load balancers，可以通过service的PublishedPort访问到集群中的某一个节点，然而这个节点并不一定正在运行端口对应service的task。但是swarm中所有的节点都会将入口链接路由指向到对应的service上正在运行的task实例。
 
 Swarm mode has an internal DNS component that automatically assigns each service in the swarm a DNS entry. The swarm manager uses internal load balancing to distribute requests among services within the cluster based upon the DNS name of the service.
 
