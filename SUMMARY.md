@@ -5,4 +5,5 @@
 * [Swarm模式关键概念](swarmmo-shi-guan-jian-gai-nian.md)
 * [开始使用Swarm](kai-shi-shi-yong-swarm.md)
   * [安装](kai-shi-shi-yong-swarm/a-a-a.md)
+  * [创建Swarm](kai-shi-shi-yong-swarm/chuang-jian-swarm.md)
 
