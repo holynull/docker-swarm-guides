@@ -6,4 +6,5 @@
 * [开始使用Swarm](kai-shi-shi-yong-swarm.md)
   * [安装](kai-shi-shi-yong-swarm/a-a-a.md)
   * [创建Swarm](kai-shi-shi-yong-swarm/chuang-jian-swarm.md)
+  * [增加节点](kai-shi-shi-yong-swarm/zeng-jia-jie-dian.md)
 
