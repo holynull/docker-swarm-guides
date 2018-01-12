@@ -7,4 +7,5 @@
   * [安装](kai-shi-shi-yong-swarm/a-a-a.md)
   * [创建Swarm](kai-shi-shi-yong-swarm/chuang-jian-swarm.md)
   * [增加节点](kai-shi-shi-yong-swarm/zeng-jia-jie-dian.md)
+  * [发布service](kai-shi-shi-yong-swarm/fa-bu-service.md)
 
