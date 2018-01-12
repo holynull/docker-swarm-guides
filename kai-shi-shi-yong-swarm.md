@@ -2,13 +2,21 @@
 
 This tutorial introduces you to the features of Docker Engine Swarm mode. You may want to familiarize yourself with the key concepts before you begin.
 
-The tutorial guides you through the following activities:
+本教程将介绍一些Docker Engine在Swarm模式下的一些功能特性。并引导读者完成如下操作：
 
-initializing a cluster of Docker Engines in swarm mode
-adding nodes to the swarm
-deploying application services to the swarm
-managing the swarm once you have everything running
+- 在Swarm模式下初始化Docker Engine集群。
+
+- 给Swarm添加节点
+
+- 部署应用服务到Swarm
+
+- 管理Swarm
+
 This tutorial uses Docker Engine CLI commands entered on the command line of a terminal window. You should be able to install Docker on networked machines and be comfortable with running commands in the shell of your choice.
+
+本教程将使用Docker Engine CLI的命令行来进行操作。读者首先需要在一个网络环境中的服务器上安装Docker，并能够在服务器的shell中运行命令。
+
+
 
 If you are brand new to Docker, see About Docker Engine.
 
