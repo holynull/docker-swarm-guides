@@ -62,6 +62,6 @@
 dxn1zf6l61qsb1josjja83ngz *  manager1  Ready   Active        Leader
   ```
 
-`*`表示当前链接的节点，即我们执行操作命令的节点。
+  `*`表示当前链接的节点，即我们执行操作命令的节点。
 
-Docker Engine在swarm模式下，使用宿主机的host name来命名节点。
+  Docker Engine在swarm模式下，使用宿主机的host name来命名节点。
