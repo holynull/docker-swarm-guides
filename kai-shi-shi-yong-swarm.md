@@ -102,4 +102,6 @@ If you are planning on creating an overlay network with encryption (--opt encryp
 - TCP and UDP 7946 - 节点之间的通信端口
 - UDP 4789 - Overlay Network数据传输端口
 
+如果你计划创建加密的Overlay Network，还需要设置IP协议支持50 (ESP) traffic。
+
 
