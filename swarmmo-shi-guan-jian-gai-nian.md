@@ -43,7 +43,7 @@ When you create a service, you specify which container image to use and which co
 
 In the replicated services model, the swarm manager distributes a specific number of replica tasks among the nodes based upon the scale you set in the desired state.
 
-在副本service模式中，
+在service的副本模式情况下，manager会将指定副本数量的任务分配到所有的node上执行，这个副本的数量就是service的container的数量（即，service的scale）。
 
 For global services, the swarm runs one task for the service on every available node in the cluster.
 
