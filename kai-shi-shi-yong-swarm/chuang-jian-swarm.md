@@ -4,16 +4,19 @@
 
 1. 打开终端通过ssh进入到manager节点，即进入本教程称之为manager1的宿主机。如果你使用Docker Machine，你可以通过如下命令进入宿主机manager1：
 
-```
-$ docker-machine ssh manager1
+  ```
+  $ docker-machine ssh manager1
 
-```
+  ```
+2. 执行如下命令创建一个新的Swarm：
 
+  ```
+  docker swarm init --advertise-addr <MANAGER-IP>
+  ```
 
-Run the following command to create a new swarm:
-
-docker swarm init --advertise-addr <MANAGER-IP>
-Note: If you are using Docker for Mac or Docker for Windows to test single-node swarm, simply run docker swarm init with no arguments. There is no need to specify --advertise-addr in this case. To learn more, see the topic on how to Use Docker for Mac or Docker for Windows with Swarm.
+  Note: If you are using Docker for Mac or Docker for Windows to test single-node swarm, simply run docker swarm init with no arguments. There is no need to specify --advertise-addr in this case. To learn more, see the topic on how to Use Docker for Mac or Docker for Windows with Swarm.
+  
+  > **注意：**
 
 In the tutorial, the following command creates a swarm on the manager1 machine:
 
