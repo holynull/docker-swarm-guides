@@ -20,19 +20,35 @@ This tutorial uses Docker Engine CLI commands entered on the command line of a t
 
 If you are brand new to Docker, see About Docker Engine.
 
-Set up
+## Set up 安装
+
 To run this tutorial, you need the following:
 
 three Linux hosts which can communicate over a network, with Docker installed
 Docker Engine 1.12 or later installed
 the IP address of the manager machine
 open ports between the hosts
-Three networked host machines
+
+请注意本教程有如下要求：
+
+- 3台在同一个网络中的预装Linux操作系统的宿主机，并且宿主机上安装Docker。
+- Docker Engine的版本1.12+
+- 需要清楚作为Manager的主机的IP地址
+- 主机之间需要能够互相开放端口
+
+## 3个联网的宿主机
+
 This tutorial requires three Linux hosts which have Docker installed and can communicate over a network. These can be physical machines, virtual machines, Amazon EC2 instances, or hosted in some other way. You can even use Docker Machine from a Linux, Mac, or Windows host. Check out Getting started - Swarms for one possible set-up for the hosts.
+
+本教程要求具备3台联网的Linux操作系统的宿主机，并且安装Docker。这些宿主机可以是物理服务器，也可以是虚拟机或者各种云服务器。读者也可使用Docker Machine来简历主机。
 
 One of these machines will be a manager (called manager1) and two of them will be workers (worker1 and worker2).
 
+3台宿主机中的一台将作为Manager，我们这里称作manager1。其他两台将作为Worker，分别称作worker1和worker2。
+
 Note: You can follow many of the tutorial steps to test single-node swarm as well, in which case you need only one host. Multi-node commands will not work, but you can initialize a swarm, create services, and scale them.
+
+> **注意：** 读者同样可以通过教程的步骤实验创建一个单节点的swarm，这种情况下你只需要一台宿主机。但是多节点命令将不能运行，但是你可以初始化一个swarm、创建service和设定service的scale。
 
 Docker Engine 1.12 or newer
 This tutorial requires Docker Engine 1.12 or newer on each of the host machines. Install Docker Engine and verify that the Docker Engine daemon is running on each of the machines. You can get the latest version of Docker Engine as follows:
