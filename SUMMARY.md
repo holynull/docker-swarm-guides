@@ -9,4 +9,5 @@
   * [增加节点](kai-shi-shi-yong-swarm/zeng-jia-jie-dian.md)
   * [发布service](kai-shi-shi-yong-swarm/fa-bu-service.md)
   * [查看service的状态](kai-shi-shi-yong-swarm/cha-kan-service-de-zhuang-tai.md)
+  * [服务中task的数量](kai-shi-shi-yong-swarm/fu-wu-zhong-task-de-shu-liang.md)
 
