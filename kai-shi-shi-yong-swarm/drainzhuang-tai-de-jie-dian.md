@@ -81,3 +81,16 @@
 
     worker1
     ```
+    
+9. 检查节点状态。
+
+    ```
+    $ docker node inspect --pretty worker1
+
+    ID:			38ciaotwjuritcdtn9npbnkuz
+    Hostname:		worker1
+    Status:
+     State:			Ready
+     Availability:		Active
+    ...snip...
+    ```
