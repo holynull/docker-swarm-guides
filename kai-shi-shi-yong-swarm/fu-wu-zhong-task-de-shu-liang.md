@@ -20,7 +20,6 @@
     
 3. 运行命令`docker service ps <SERVICE-ID>`，来查看修改后的service的状态：
 
-
     ```
     $ docker service ps helloworld
 
@@ -30,5 +29,4 @@
     helloworld.3.6crl09vdcalvtfehfh69ogfb1  alpine  worker1   Running        Running 24 seconds
     helloworld.4.auky6trawmdlcne8ad8phb0f1  alpine  manager1  Running        Running 24 seconds
     helloworld.5.ba19kca06l18zujfwxyc5lkyn  alpine  worker2   Running        Running 24 seconds
-
     ```
