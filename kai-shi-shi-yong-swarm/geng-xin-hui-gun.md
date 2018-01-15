@@ -39,3 +39,10 @@
     Endpoint Mode:  vip
     ```
     
+4. 下面开始更新服务。manager根据`UpdateConfig`对节点上的task进行更新。
+
+    ```
+    $ docker service update --image redis:3.0.7   redis
+    redis
+    ```
+    
