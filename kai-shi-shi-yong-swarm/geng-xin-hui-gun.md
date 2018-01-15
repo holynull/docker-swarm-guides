@@ -46,3 +46,30 @@
     redis
     ```
     
+    调度更新的步骤如下：
+    - 停止第一个task。
+    - 更新第一个停止的task。
+    - 更新完成后将task启动起啦。
+    - 如果task返回`RUNNING`状态，在等待task更新延时时间到达后，开始更新下一个task。
+    - 如果task返回`FAILED` 状态，则停止更新操作。
+    
+5. 检查更新后的`redis`状态，运行命令`docker service inspect --pretty redis`;如果更新成功会有如下显示结果：
+
+    ```
+    $ docker service inspect --pretty redis
+
+    ID:             0u6a4s31ybk7yw2wyvtikmu50
+    Name:           redis
+    Service Mode:   Replicated
+    Replicas:      3
+    Placement:
+     Strategy:	    Spread
+    UpdateConfig:
+     Parallelism:   1
+     Delay:         10s
+    ContainerSpec:
+     Image:         redis:3.0.7
+    Resources:
+    Endpoint Mode:  vip
+    ```
+    
