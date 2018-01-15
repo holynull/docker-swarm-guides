@@ -30,3 +30,14 @@
     helloworld.4.auky6trawmdlcne8ad8phb0f1  alpine  manager1  Running        Running 24 seconds
     helloworld.5.ba19kca06l18zujfwxyc5lkyn  alpine  worker2   Running        Running 24 seconds
     ```
+    
+    我们可以看到新生成了4个服务实例，分别分散部署在swarm的不同节点上，并且有一个部署在manager节点上。
+    
+4. 在不同的节点上运行`docker ps`可以查看每个节点上运行的task的情况。例如，我们在manager1节点上运行命令：
+
+    ```
+    $ docker ps
+
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    528d68040f95        alpine:latest       "ping docker.com"   About a minute ago   Up About a minute                       helloworld.4.auky6trawmdlcne8ad8phb0f1
+    ```
