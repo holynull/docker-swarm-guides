@@ -11,5 +11,5 @@
   * [查看service的状态](kai-shi-shi-yong-swarm/cha-kan-service-de-zhuang-tai.md)
   * [服务中task的数量](kai-shi-shi-yong-swarm/fu-wu-zhong-task-de-shu-liang.md)
   * [删除service](kai-shi-shi-yong-swarm/shan-chu-fu-wu.md)
-  * [更新回滚](kai-shi-shi-yong-swarm/geng-xin-hui-gun.md)
+  * [滚动式更新](kai-shi-shi-yong-swarm/geng-xin-hui-gun.md)
 
