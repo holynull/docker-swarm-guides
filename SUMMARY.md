@@ -12,4 +12,5 @@
   * [服务中task的数量](kai-shi-shi-yong-swarm/fu-wu-zhong-task-de-shu-liang.md)
   * [删除service](kai-shi-shi-yong-swarm/shan-chu-fu-wu.md)
   * [滚动式更新](kai-shi-shi-yong-swarm/geng-xin-hui-gun.md)
+  * [DRAIN状态的节点](kai-shi-shi-yong-swarm/drainzhuang-tai-de-jie-dian.md)
 
