@@ -27,54 +27,52 @@
  
  > 提示：如果需要返回json格式的数据，去掉参数`--pretty`就可以了。
  
- ```
- [manager1]$ docker service inspect helloworld
-    [
-    {
-    "ID": "9uk4639qpg7npwf3fn2aasksr",
-    "Version": {
-        "Index": 418
-    },
-    "CreatedAt": "2016-06-16T21:57:11.622222327Z",
-    "UpdatedAt": "2016-06-16T21:57:11.622222327Z",
-    "Spec": {
-        "Name": "helloworld",
-        "TaskTemplate": {
-            "ContainerSpec": {
-                "Image": "alpine",
-                "Args": [
-                    "ping",
-                    "docker.com"
-                ]
-            },
-            "Resources": {
-                "Limits": {},
-                "Reservations": {}
-            },
-            "RestartPolicy": {
-                "Condition": "any",
-                "MaxAttempts": 0
-            },
-            "Placement": {}
+    ```
+     [manager1]$ docker service inspect helloworld
+    [{
+        "ID": "9uk4639qpg7npwf3fn2aasksr",
+        "Version": {
+            "Index": 418
         },
-        "Mode": {
-            "Replicated": {
-                "Replicas": 1
+        "CreatedAt": "2016-06-16T21:57:11.622222327Z",
+        "UpdatedAt": "2016-06-16T21:57:11.622222327Z",
+        "Spec": {
+            "Name": "helloworld",
+            "TaskTemplate": {
+                "ContainerSpec": {
+                    "Image": "alpine",
+                    "Args": [
+                        "ping",
+                        "docker.com"
+                    ]
+                },
+                "Resources": {
+                    "Limits": {},
+                    "Reservations": {}
+                },
+                "RestartPolicy": {
+                    "Condition": "any",
+                    "MaxAttempts": 0
+                },
+                "Placement": {}
+            },
+            "Mode": {
+                "Replicated": {
+                    "Replicas": 1
+                }
+            },
+            "UpdateConfig": {
+                "Parallelism": 1
+            },
+            "EndpointSpec": {
+                "Mode": "vip"
             }
         },
-        "UpdateConfig": {
-            "Parallelism": 1
-        },
-        "EndpointSpec": {
-            "Mode": "vip"
+        "Endpoint": {
+            "Spec": {}
         }
-    },
-    "Endpoint": {
-        "Spec": {}
-    }
-    }
-    ]
- ```
+    }]
+    ```
  
 3. 通过运行命令``来查看service在哪些节点上运行。
 
