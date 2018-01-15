@@ -88,3 +88,23 @@
     ...snip...
     ```
     
+    用命令`docker service update <SERVICE-ID>`重启暂停的服务。例如：
+    
+    ```
+    docker service update redis
+    ```
+    
+6. 使用命令`docker service ps <SERVICE-ID>`来查看更新结果。
+
+    ```
+    $ docker service ps redis
+
+    NAME                                   IMAGE        NODE       DESIRED STATE  CURRENT STATE            ERROR
+    redis.1.dos1zffgeofhagnve8w864fco      redis:3.0.7  worker1    Running        Running 37 seconds
+    \_ redis.1.88rdo6pa52ki8oqx6dogf04fh  redis:3.0.6  worker2    Shutdown       Shutdown 56 seconds ago
+    redis.2.9l3i4j85517skba5o7tn5m8g0      redis:3.0.7  worker2    Running        Running About a minute
+    \_ redis.2.66k185wilg8ele7ntu8f6nj6i  redis:3.0.6  worker1    Shutdown       Shutdown 2 minutes ago
+    redis.3.egiuiqpzrdbxks3wxgn8qib1g      redis:3.0.7  worker1    Running        Running 48 seconds
+    \_ redis.3.ctzktfddb2tepkr45qcmqln04  redis:3.0.6  mmanager1  Shutdown       Shutdown 2 minutes ago
+    ```
+    
