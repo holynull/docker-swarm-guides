@@ -94,3 +94,10 @@
      Availability:		Active
     ...snip...
     ```
+    
+    节点状态变回到`ACTIVE`后，就可以在如下情况时接受manager分配创建task。
+    
+    - 增加service中task数量
+    - 滚动式更新时
+    - 其他节点状态变为`DRAIN`时
+    - 其他节点的task运行失败时。
