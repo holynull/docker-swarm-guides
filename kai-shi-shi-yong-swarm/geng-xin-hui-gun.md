@@ -73,3 +73,18 @@
     Endpoint Mode:  vip
     ```
     
+    如果更新暂停，会有如下结果：
+    
+    ```
+    $ docker service inspect --pretty redis
+
+    ID:             0u6a4s31ybk7yw2wyvtikmu50
+    Name:           redis
+    ...snip...
+    Update status:
+     State:      paused
+     Started:    11 seconds ago
+     Message:    update paused due to failure or early termination of task 9p7ith557h8ndf0ui9s0q951b
+    ...snip...
+    ```
+    
