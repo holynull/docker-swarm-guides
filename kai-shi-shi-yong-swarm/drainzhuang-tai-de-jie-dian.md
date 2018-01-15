@@ -71,3 +71,13 @@
      \_ redis.2.7h2l8h3q3wqy5f66hlv9ddmi6   redis:3.0.6  worker1   Shutdown       Shutdown 2 minutes ago
     redis.3.9bg7cezvedmkgg6c8yzvbhwsd       redis:3.0.6  worker2   Running        Running 4 minutes
     ```
+    
+    manager为了使`redis`的状态保持跟最初设定一致，将`DRAIN`状态节点上的task转移到一个`ACTIVE`状态的节点上运行。
+    
+8. 运行命令`docker node update --availability active <NODE-ID>`使节点状态变回到`ACTIVE`。
+
+    ```
+    $ docker node update --availability active worker1
+
+    worker1
+    ```
