@@ -39,6 +39,111 @@ $ docker service create \
 
 当我们访问任何一个节点的8080端口时，Docker会将请求路由到一个可用的container上。在swarm的其他节点上8080端口可能并不是真正的被绑定，但是路由网知道如何进行路由通信，并且阻止端口冲突。
 
+路由网在分配给节点的IP地址上监听向外暴露的端口。在宿主机的外部路由IP地址上，这些端口是可用的。其他的IP地址访问只在宿主机内部可用。
+
+![Ingress network](/assets/ingress-routing-mesh.png)
+
+
+通过下面的命令，我们可以为已经存在的service开放对外端口：
+
+```
+$ docker service update \
+  --publish-add published=<PUBLISHED-PORT>,target=<CONTAINER-PORT> \
+  <SERVICE>
+```
+
+可以通过`docker service inspect`来查看service对外暴露的端口。例如：
+
+```
+$ docker service inspect --format="{{json .Endpoint.Spec.Ports}}" my-web
+
+[{"Protocol":"tcp","TargetPort":80,"PublishedPort":8080}]
+
+```
+
+在输出结果中`TargetPort`表示`<CONTAINER-PORT>`，`PublishedPort`表示`<PUBLISHED-PORT>`，service将在`PublishedPort`端口上对请求进行监听。
+
+## 仅暴露TCP端口或者仅暴露UDP端口
+
+在默认情况下，暴露的端口为TCP端口。你可以指定暴露的端口为UDP端口。当暴露端口时，省略协议，则默认暴露的端口为TCP协议端口。如果使用长格式语法（建议Docker 1.13+），设置参数`protocol`为`tcp`或者`udp`即可。
+
+### TCP
+
+#### 长格式语法
+
+```
+$ docker service create --name dns-cache \
+  --publish published=53,target=53 \
+  dns-cache
+```
+
+#### 短格式语法
+
+```
+$ docker service create --name dns-cache \
+  -p 53:53 \
+  dns-cache
+```
+
+### TCP/UDP
+
+#### 长格式语法
+
+```
+$ docker service create --name dns-cache \
+  --publish published=53,target=53 \
+  --publish published=53,target=53,protocol=udp \
+  dns-cache
+```
+
+#### 短格式语法
+
+```
+$ docker service create --name dns-cache \
+  -p 53:53 \
+  -p 53:53/udp \
+  dns-cache
+```
+
+### UDP
+
+#### 长格式语法
+
+```
+$ docker service create --name dns-cache \
+  --publish published=53,target=53,protocol=udp \
+  dns-cache
+```
+
+#### 短格式语法
+
+```
+$ docker service create --name dns-cache \
+  -p 53:53/udp \
+  dns-cache
+```
+
+## 绕过路由网
+
+当需要每次通过端口访问，都指定访问一个固定节点上service的实例时，我们可以通过设置绕过路由网。这就涉及到一个概念，称之为`host`模式。这种情况下，我们需要记住一下几点：
+
+- 如果我们访问到一个没有运行service实例的节点时，可能会链接失败或者访问到一个完全不同的service实例上。
+
+- 如果期望在每个节点上运行同一个service的多个task，就不能指定一个静态的`target`端口。也不能允许Docker随机分配暴露的端口。通过创建全局service而不是副本模式的service，或者使用`placement constraints`约束，来确保在指定的节点上运行一个单独的service实例。
+
+要绕过路由网，必须使用`--publish`，并且设置`mode`参数为`host`。如果省略`mode`，或者设置`mode`为`ingress`，则不会绕过路由网。下面的命令创建了一个`host`模式的全局service，并绕过路由网：
+
+```
+$ docker service create --name dns-cache \
+  --publish published=53,target=53,protocol=udp,mode=host \
+  --mode global \
+  dns-cache
+```
+
+## 使用外部负载均衡
+
+
+
 
 
 
