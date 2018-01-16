@@ -4,9 +4,9 @@ Docker Engine在Swarm模式下，使service可以轻松的将端口暴露给外�
 
 为了在Swarm中使用这个入口网络，需要在开启Swarm模式之前，保证节点之间在下面两个端口之间可以互相访问：
 
-- 7946 TCP/UDP 用来实现container发现服务的端口
+* 7946 TCP/UDP 用来实现container发现服务的端口
 
-- 4789 UDP container入口网络端口
+* 4789 UDP container入口网络端口
 
 同时需要开放Swarm节点与外部资源的通信端口。例如，与外部负载均衡设备的通信端口。
 
@@ -22,6 +22,24 @@ $ docker service create \
   --publish published=<PUBLISHED-PORT>,target=<CONTAINER-PORT> \
   <IMAGE>
 ```
+
+> **注意：**之前版本的语法使用冒号分隔。冒号前表示container内部端口号，冒号后表示对外暴露的端口号，例如`-p 8080:80`。新的语法的好处是更容易理解和更具灵活性。
+
+Service通过Swarm向外暴露`<PUBLISHED-PORT>`才能变成可用的service。如果我们省略这个参数，service会被随机的绑定一个端口。`<CONTAINER-PORT>`端口是container监听的端口。这个参数是必须设置的。
+
+举个例子，下面的命令将创建一个Nginx service，使container的80端口向外部暴露成8080端口，即在swarm的每一个节点上都会向外暴露8080端口。
+
+```
+$ docker service create \
+  --name my-web \
+  --publish published=8080,target=80 \
+  --replicas 2 \
+  nginx
+```
+
+当我们访问任何一个节点的8080端口时，Docker会将请求路由到一个可用的container上。在swarm的其他节点上8080端口可能并不是真正的被绑定，但是路由网知道如何进行路由通信，并且阻止端口冲突。
+
+
 
 
 
