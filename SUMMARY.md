@@ -14,4 +14,5 @@
   * [滚动式更新](kai-shi-shi-yong-swarm/geng-xin-hui-gun.md)
   * [DRAIN状态的节点](kai-shi-shi-yong-swarm/drainzhuang-tai-de-jie-dian.md)
   * [Swarm模式端口路由网](kai-shi-shi-yong-swarm/swarmmo-shi-duan-kou-lu-you.md)
+* [Swarm模式工作原理](swarmmo-shi-gong-zuo-yuan-li.md)
 
