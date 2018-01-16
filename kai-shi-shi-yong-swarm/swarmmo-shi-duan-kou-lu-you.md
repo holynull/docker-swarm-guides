@@ -142,7 +142,43 @@ $ docker service create --name dns-cache \
 
 ## 使用外部负载均衡
 
+我们可以结合路由网为swarm中的service配置外部负载均衡，后者完全不使用路由网。
 
+### 结合路由网
+
+例如我们可以使用[HAProxy](http://www.haproxy.org/)来负载均衡Nginx服务的8080端口的请求。
+
+![](/assets/ingress-lb.png)
+
+在这种情况下，8080端口必须对外部负载均衡器和内部节点开放。Swarm的节点必须在一个私有的网路中，并能被代理服务器访问。
+
+你可以配置负载均衡器，请求可以被分发到任何一个swarm中的节点上，即使这个节点没有运行任何service的task。例如下面HAProxy的配置：
+
+```
+global
+        log /dev/log    local0
+        log /dev/log    local1 notice
+...snip...
+
+# Configure HAProxy to listen on port 80
+frontend http_front
+   bind *:80
+   stats uri /haproxy?stats
+   default_backend http_back
+
+# Configure HAProxy to route requests to swarm nodes on port 8080
+backend http_back
+   balance roundrobin
+   server node1 192.168.99.100:8080 check
+   server node2 192.168.99.101:8080 check
+   server node3 192.168.99.102:8080 check
+```
+
+当访问HAProxy的80端口时，请求会被分发到Swarm的节点上。Swarm路由网再将请求指向到一个运行中的task上。不管任何原因Swarm调度task到其他节点上，都不用去修改外部负载均衡器的配置。
+
+### 完全脱离路由网
+
+通过设置参数`--endpoint-mode`为`dmsrr`（默认值`vip`）来实现完全脱离路由网。在这种情况下，没有独立的虚拟IP地址。Docker会为service装载DNS入口，这样以来通过DNS查询可以
 
 
 
