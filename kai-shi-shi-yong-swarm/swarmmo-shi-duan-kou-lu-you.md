@@ -178,7 +178,7 @@ backend http_back
 
 ### 完全脱离路由网
 
-通过设置参数`--endpoint-mode`为`dmsrr`（默认值`vip`）来实现完全脱离路由网。在这种情况下，没有独立的虚拟IP地址。Docker会为service装载DNS入口，这样以来通过DNS查询可以
+通过设置参数`--endpoint-mode`为`dmsrr`（默认值`vip`）来实现完全脱离路由网。在这种情况下，没有独立的虚拟IP地址。Docker会为service装载DNS入口，这样以来通过DNS查询可以得到IP地址列表，并且客户端可以直接链接到一个服务实例。只要提供IP地址里诶包和端口号给外部负载均衡器就可以了。详见[Configure service discovery](https://docs.docker.com/engine/swarm/networking/#configure-service-discovery)。
 
 
 
