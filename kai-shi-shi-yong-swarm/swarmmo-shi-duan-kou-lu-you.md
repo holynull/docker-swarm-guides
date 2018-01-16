@@ -16,11 +16,12 @@ Docker Engine在Swarm模式下，使service可以轻松的将端口暴露给外�
 
 在创建service时，通过使用参数`--publish`参数来暴露端口。`target`用来指定container内部的端口号；`published`用来指定向外暴露的端口号，这个端口号将被绑定到路由网上。如果不设置`published`将会为service的task指定一个随机的端口号，需要查看task的信息才能确定这个端口号是多少。
 
-
 ```
 $ docker service create \
   --name <SERVICE-NAME> \
   --publish published=<PUBLISHED-PORT>,target=<CONTAINER-PORT> \
   <IMAGE>
 ```
+
+
 
