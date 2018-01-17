@@ -44,10 +44,10 @@ docker swarm update --cert-expiry <TIME PERIOD>`。最小的证书轮换时间�
 
 2. 在Docker 17.06或者更高版本中，Docker会通知所有节点立即更新TLS证书。根据Swarm中节点的数量多少，这个过程可能会花费几分钟时间。
 
-> **注意：如果Swarm中的节点上Docker的版本不一致，将会发生下面的情况：**
-- 只有manager节点运行了Docker 17.06或者更高版本，并且作为leader时，才能通知到其他节点更新TLS证书。
-- 只有Docker 17.06或者更高版本才会支持这个指令。
-最好确保所有的Swarm节点上运行Docker 17.06或者更高版本。
+    > **注意：如果Swarm中的节点上Docker的版本不一致，将会发生下面的情况：**
+    - 只有manager节点运行了Docker 17.06或者更高版本，并且作为leader时，才能通知到其他节点更新TLS证书。
+    - 只有Docker 17.06或者更高版本才会支持这个指令。
+    最好确保所有的Swarm节点上运行Docker 17.06或者更高版本。
 
 3. 在所有的节点都更新了新CA证书签署的TLS证书后，Docker将不在信任旧的证书，并通知所有节点仅信任新的CA证书。
 
