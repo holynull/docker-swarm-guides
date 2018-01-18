@@ -164,7 +164,30 @@ Docker的manager节点将Swarm的状态和日志存储在`/var/lib/docker/swarm/
 
 ### 从备份恢复
 
+备份了Swarm之后，通过下面的过程进行恢复：
 
+1. 在要恢复Swarm的主机上关闭Docker。
+
+2. 移除目录`/var/lib/docker/swarm`。
+
+3. 将之前备份的内容恢复到目录`/var/lib/docker/swarm`。
+
+    > **注意：新的节点将跟以前节点一样的磁盘加密密钥。此时不能修改这个磁盘加密密钥。**
+    在Swarm`auto-lock`打开的情况下，`unlock key`与之前的备份的`unlock-key`是一样的，也会要进行恢复。
+    
+4. 在恢复Swarm的节点上开启Docker。解锁Swarm如果需要的话。使用下面的命令重新初始化Swarm，这样的话这个节点将不会再去尝试链接之前的Swarm节点。
+
+    ```
+    $ docker swarm init --force-new-cluster
+    ```
+    
+5. 检查确认Swarm的状态。也许这一步还要包含应用测试，或者通过玲玲`docker service ls`来查看确定service的状态。
+
+6. 如果使用`auto-lock`，则需要轮换`unlock key`。详情请参看[rotate unlock key](https://docs.docker.com/engine/swarm/swarm_manager_locking/#rotate-the-unlock-key)。
+
+7. 添加manager节点和worker节点，使集群容量达到跟之前一下样。
+
+8. 在新的集群上恢复之前的应用备份。
 
 
 
