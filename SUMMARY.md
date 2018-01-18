@@ -19,4 +19,5 @@
   * [Service工作原理](swarmmo-shi-gong-zuo-yuan-li/servicegong-zuo-yuan-li.md)
   * [安全（PKI）](swarmmo-shi-gong-zuo-yuan-li/an-quan-ff08-pki.md)
   * [Task的状态](swarmmo-shi-gong-zuo-yuan-li/taskde-zhuang-tai.md)
+* [Swarm管理维护指南](swarmguan-li-wei-hu-zhi-nan.md)
 
