@@ -102,6 +102,54 @@ ready
 
 - 如果既不重启Docker daemon也不重启服务器，那么就需要添加一个新的manager节点，或者将一个worker节点升级成为一个manager节点。我们也需要通过命令`docker node demote <NODE>`和`docker node rm <id-node>`彻底移除该节点。
 
+我们也可以在manager节点上执行`docker node ls`来查看节点：
+
+```
+docker node ls
+ID                           HOSTNAME  MEMBERSHIP  STATUS  AVAILABILITY  MANAGER STATUS
+1mhtdwhvsgr3c26xxbnzdc3yp    node05    Accepted    Ready   Active
+516pacagkqp2xc3fk9t1dhjor    node02    Accepted    Ready   Active        Reachable
+9ifojw8of78kkusuc4a6c23fx *  node01    Accepted    Ready   Active        Leader
+ax11wdpwrrb6db3mfjydscgk7    node04    Accepted    Ready   Active
+bb1nrq2cswhtbg4mrsqnlx1ck    node03    Accepted    Ready   Active        Reachable
+di9wxgz8dtuh9d2hn089ecqkf    node06    Accepted    Ready   Active
+```
+
+## Manager节点的故障排查
+
+不能从其他节点上将`raft`目录拷贝到mananger节点上，然后重启节点。对于每一个节点ID数据目录是唯一对应的。加入Swarm时每一个节点ID只能被节点使用一次。节点ID控件是全局唯一的。
+
+重新将manager节点加入到集群中，需要如下操作：
+
+1. 将节点降级为worker节点。`docker node demote <NODE>`
+
+2. 将节点移除。`docker node rm <NODE>`
+
+3. 将节点重新加入回来，并使用新的状态。`docker swarm join`
+
+## 强行移除节点
+
+有些情况下，需要在移除节点之前关闭节点。如果节点变成不可达，或者没有响应。我们可以像如下方法使用`--force`参数强行移除节点。
+
+```
+$ docker node rm node9
+
+Error response from daemon: rpc error: code = 9 desc = node node9 is not down and can't be removed
+
+$ docker node rm --force node9
+
+Node node9 removed from swarm
+```
+
+强行移除节点之前，必须将节点先降级成为worker节点。降级Manager节点时，请确保剩下的manager个数为一个奇数。
+
+## 备份
+
+Docker的manager节点将Swarm的状态和日志存储在`/var/lib/docker/swarm/`目录下。在1.13或者更高版本中，这个目录下包含加密Raft日志的密钥。如果没有这些密钥，就没有办法恢复Swarm。
+
+我们可以在任何一个manager节点上，按照下面的过程进行备份。
+
+1. 如果Swarm`auto-lock`设置被打开，我们需要将锁打开才能进行从备份恢复。
 
 
 
