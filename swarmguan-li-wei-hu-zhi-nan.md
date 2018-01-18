@@ -193,7 +193,27 @@ Docker的manager节点将Swarm的状态和日志存储在`/var/lib/docker/swarm/
 
 Swarm具有容错性，并且能够从临时的节点不可用（机器重启或者崩溃重启）中，或者其他瞬时的错误中恢复。然而，选举算法出问题时，Swarm是不能自动恢复的。worker节点上的task还在继续执行，但是负责管理的任务将不能运行，包括扩展、或者更新service，添加或者移除节点。最好解决方法是将不可用的manager节点恢复回来。如果无法恢复manager节点怎么办？
 
-在一个N个manager节点的Swarm中，必须保证法定人数以上的节点可用。例如，5个manager
+在一个N个manager节点的Swarm中，必须保证法定人数以上的节点可用。例如，5个manager，最少要3个manager可用才并能够互相通信。如果可用的manager的数量低于法定人数，就不能对Swarm进行任何管理操作。当试图进行管理操作时，会出现如下错误提示：
+
+```
+Error response from daemon: rpc error: code = 4 desc = context deadline exceeded
+```
+
+最佳的回复方法当然是将不可用的manager节点恢复回来。如果发布恢复manager节点，我们只能通过使用参数`--force-new-cluster`来恢复manager节点。这个操作将降级所有的manager节点，除了执行命令的节点。然后再手动将worker节点升级回manager节点，保持与原来一样个数的manager节点为止。
+
+```
+# From the node to recover
+docker swarm init --force-new-cluster --advertise-addr node01:2377
+
+```
+
+## 强制平衡
+
+通常情况下我们不需要重新平衡task在节点上的分配。只有当我们新加了节点，或者一个节点重新接入Swarm时，Swarm不会自动将已存在的task按照新的节点个数从新在节点之间分配。这种设计的初衷是防止增加节点时，如果task重新分配会造成客户端访问的阻断。
+
+在Docker 1.13或者更高版本，我们可以在命令`docker service update`使用使用`--force`或者`-f`参数来从新分配task。这会造成Service的task滚动重启。
+
+
 
 
 
