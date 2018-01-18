@@ -164,7 +164,7 @@ Docker的manager节点将Swarm的状态和日志存储在`/var/lib/docker/swarm/
 
 ### 从备份恢复
 
-备份了Swarm之后，通过下面的过程进行恢复：
+备份了Swarm之后，通过下面的过程将备份的数据恢复到一个新的集群上：
 
 1. 在要恢复Swarm的主机上关闭Docker。
 
