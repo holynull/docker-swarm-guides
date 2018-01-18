@@ -160,6 +160,24 @@ Docker的manager节点将Swarm的状态和日志存储在`/var/lib/docker/swarm/
 
 4. 重启manager节点
 
+## 灾备恢复
+
+### 从备份恢复
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
