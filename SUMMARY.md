@@ -26,4 +26,5 @@
   * [Worker节点负载均衡](swarmguan-li-wei-hu-zhi-nan/workerjie-dian-fu-zai-jun-heng.md)
   * [监控Swarm健康](swarmguan-li-wei-hu-zhi-nan/jian-kong-swarm-jian-kang.md)
   * [Manager节点的故障排查](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-de-gu-zhang-pai-cha.md)
+  * [强行移除节点](swarmguan-li-wei-hu-zhi-nan/qiang-xing-yi-chu-jie-dian.md)
 
