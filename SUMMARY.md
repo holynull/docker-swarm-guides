@@ -24,4 +24,5 @@
   * [Manager节点配置静态IP地址](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-pei-zhi-jing-tai-ip-di-zhi.md)
   * [Manager节点的容错](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-de-rong-cuo.md)
   * [Worker节点负载均衡](swarmguan-li-wei-hu-zhi-nan/workerjie-dian-fu-zai-jun-heng.md)
+  * [监控Swarm健康](swarmguan-li-wei-hu-zhi-nan/jian-kong-swarm-jian-kang.md)
 
