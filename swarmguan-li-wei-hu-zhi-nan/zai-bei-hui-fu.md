@@ -40,3 +40,8 @@ Error response from daemon: rpc error: code = 4 desc = context deadline exceeded
 最佳的回复方法当然是将不可用的manager节点恢复回来。如果发布恢复manager节点，我们只能通过使用参数`--force-new-cluster`来恢复manager节点。这个操作将降级所有的manager节点，除了执行命令的节点。然后再手动将worker节点升级回manager节点，保持与原来一样个数的manager节点为止。
 
 ```
+# From the node to recover
+docker swarm init --force-new-cluster --advertise-addr node01:2377
+
+```
+

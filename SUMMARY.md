@@ -29,4 +29,5 @@
   * [强行移除节点](swarmguan-li-wei-hu-zhi-nan/qiang-xing-yi-chu-jie-dian.md)
   * [备份](swarmguan-li-wei-hu-zhi-nan/bei-fen.md)
   * [灾备恢复](swarmguan-li-wei-hu-zhi-nan/zai-bei-hui-fu.md)
+  * [强制平衡](swarmguan-li-wei-hu-zhi-nan/qiang-zhi-ping-heng.md)
 
