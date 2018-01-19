@@ -28,4 +28,5 @@
   * [Manager节点的故障排查](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-de-gu-zhang-pai-cha.md)
   * [强行移除节点](swarmguan-li-wei-hu-zhi-nan/qiang-xing-yi-chu-jie-dian.md)
   * [备份](swarmguan-li-wei-hu-zhi-nan/bei-fen.md)
+  * [灾备恢复](swarmguan-li-wei-hu-zhi-nan/zai-bei-hui-fu.md)
 
