@@ -45,7 +45,7 @@ bb1nrq2cswhtbg4mrsqnlx1ck    node03    Accepted    Ready   Active        Reachab
 di9wxgz8dtuh9d2hn089ecqkf    node06    Accepted    Ready   Active
 ```
 
-# 强行移除节点
+## 强行移除节点
 
 有些情况下，需要在移除节点之前关闭节点。如果节点变成不可达，或者没有响应。我们可以像如下方法使用`--force`参数强行移除节点。
 
