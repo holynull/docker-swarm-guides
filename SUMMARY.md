@@ -21,7 +21,6 @@
   * [Task的状态](swarmmo-shi-gong-zuo-yuan-li/taskde-zhuang-tai.md)
 * [Swarm管理维护指南](swarmguan-li-wei-hu-zhi-nan.md)
   * [Swarm中的Manger节点](swarmguan-li-wei-hu-zhi-nan/swarmzhong-de-manger-jie-dian.md)
-  * [监控Swarm健康](swarmguan-li-wei-hu-zhi-nan/jian-kong-swarm-jian-kang.md)
   * [强行移除节点](swarmguan-li-wei-hu-zhi-nan/qiang-xing-yi-chu-jie-dian.md)
   * [灾备恢复](swarmguan-li-wei-hu-zhi-nan/zai-bei-hui-fu.md)
   * [强制平衡](swarmguan-li-wei-hu-zhi-nan/qiang-zhi-ping-heng.md)
