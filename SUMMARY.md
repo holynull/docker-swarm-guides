@@ -21,7 +21,6 @@
   * [Task的状态](swarmmo-shi-gong-zuo-yuan-li/taskde-zhuang-tai.md)
 * [Swarm管理维护指南](swarmguan-li-wei-hu-zhi-nan.md)
   * [Swarm中的Manger节点](swarmguan-li-wei-hu-zhi-nan/swarmzhong-de-manger-jie-dian.md)
-  * [Manager节点配置静态IP地址](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-pei-zhi-jing-tai-ip-di-zhi.md)
   * [Manager节点的容错](swarmguan-li-wei-hu-zhi-nan/managerjie-dian-de-rong-cuo.md)
   * [Worker节点负载均衡](swarmguan-li-wei-hu-zhi-nan/workerjie-dian-fu-zai-jun-heng.md)
   * [监控Swarm健康](swarmguan-li-wei-hu-zhi-nan/jian-kong-swarm-jian-kang.md)
