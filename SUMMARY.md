@@ -20,4 +20,5 @@
   * [安全（PKI）](swarmmo-shi-gong-zuo-yuan-li/an-quan-ff08-pki.md)
   * [Task的状态](swarmmo-shi-gong-zuo-yuan-li/taskde-zhuang-tai.md)
 * [Swarm管理维护指南](swarmguan-li-wei-hu-zhi-nan.md)
+  * [Swarm中的Manger节点](swarmguan-li-wei-hu-zhi-nan/swarmzhong-de-manger-jie-dian.md)
 
