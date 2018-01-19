@@ -61,3 +61,35 @@ Node node9 removed from swarm
 
 强行移除节点之前，必须将节点先降级成为worker节点。降级Manager节点时，请确保剩下的manager个数为一个奇数。
 
+## 强制平衡
+
+通常情况下我们不需要重新平衡task在节点上的分配。只有当我们新加了节点，或者一个节点重新接入Swarm时，Swarm不会自动将已存在的task按照新的节点个数从新在节点之间分配。这种设计的初衷是防止增加节点时，如果task重新分配会造成客户端访问的阻断。
+
+在Docker 1.13或者更高版本，我们可以在命令`docker service update`使用使用`--force`或者`-f`参数来从新分配task。这会造成Service的task滚动重启。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
