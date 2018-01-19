@@ -22,6 +22,5 @@
 * [Swarm管理维护指南](swarmguan-li-wei-hu-zhi-nan.md)
   * [Swarm中的Manger节点](swarmguan-li-wei-hu-zhi-nan/swarmzhong-de-manger-jie-dian.md)
   * [灾备恢复](swarmguan-li-wei-hu-zhi-nan/zai-bei-hui-fu.md)
-  * [强制平衡](swarmguan-li-wei-hu-zhi-nan/qiang-zhi-ping-heng.md)
   * [其他](swarmguan-li-wei-hu-zhi-nan/qi-ta.md)
 
