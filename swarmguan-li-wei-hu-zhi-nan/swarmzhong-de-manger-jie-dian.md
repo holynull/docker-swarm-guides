@@ -12,3 +12,13 @@ Raft算法要求大部分的manager节点（这个数量在算法中要求超过
 
 一旦Swarm中的manager节点不能通过选举算法得到结果，worker节点上的Task仍然继续运行。但是，Swarm的节点不能被添加、更新和移除，并且新的task不能启动，已存在的task不能被停止、移动和更新。
 
+## Manager节点配置静态IP地址
+
+当初始化Swarm是，我们指定参数`--advertise-addr`来广播当前节点的IP地址给其他Manager节点。由于manager节点作为一个稳定的基础组件，我们应该给它分配一个固定的静态IP地址，以防止服务器重启造成IP地址改变。
+
+如果Swarm重启，并且所有的manager节点都因为重启而获得一个新的IP地址，其他节点就无法链接到manager节点。Swarm就会出现故障被挂起。
+
+Worker节点可以使用动态IP地址。
+
+
+
